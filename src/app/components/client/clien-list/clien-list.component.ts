@@ -4,6 +4,7 @@ import { ClientServiceService } from 'src/app/services/client-service.service';
 declare var $: any;
 import { NgToastService } from 'ng-angular-popup';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class ClienListComponent implements OnInit {
 
   
 
-  constructor(private clientService : ClientServiceService  , private toast: NgToastService  ) { }
+  constructor(private clientService : ClientServiceService  , private toast: NgToastService , private router: Router  ) { }
 
   ngOnInit(): void {
     this.clientService.getAllClients().subscribe((client) =>{ (this.Clients = client), console.log(this.Clients)});
@@ -41,6 +42,7 @@ Swal.fire('Hi', 'Voulez vous vraiment client!', 'question').then((result) => {
     });
   }
   showEditForm(client : client){
+    this.router.navigate(['updateClient', client.idClient]);
 
   }
 

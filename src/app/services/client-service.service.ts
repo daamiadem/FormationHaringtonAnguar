@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { client } from '../models/client';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,16 @@ export class ClientServiceService {
     return this.http.get<client[]>(this.url + "/GetAllClients");
   }
 
-  RemoveClient(client: client | number): Observable<client> {
+  public getClientById(id : number) : Observable<client> {
+    return  this.http.get<client>(this.url + "/GetClientsByid/" + id )
+  }
+
+
+  public updateClient (client : client , id : number) : Observable<client>{
+    return this.http.put<client> (this.url + "/UpdateClient/" + id  , client , this.httpOptions )
+  }
+
+  public  RemoveClient(client: client | number): Observable<client> {
     const id = typeof client === 'number' ? client : client.idClient;
     const url = this.url + '/DeleteClient/' + id;
     return this.http.delete<client>(url);
@@ -27,7 +37,7 @@ export class ClientServiceService {
     })
     }
 
-    
+
 
   public ajouterClient(client: client) : Observable<client>{
 

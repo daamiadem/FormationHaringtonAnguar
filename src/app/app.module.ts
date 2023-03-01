@@ -9,7 +9,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CreateClientComponent } from './components/client/create-client/create-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgToastModule } from 'ng-angular-popup'
+import { NgToastModule } from 'ng-angular-popup'; 
+import { CommonModule } from '@angular/common';
+import { UpdateClientComponent } from './components/client/update-client/update-client.component';
+
 
 @NgModule({
   declarations: [
@@ -18,15 +21,17 @@ import { NgToastModule } from 'ng-angular-popup'
     MainPageComponent,
     NavbarComponent,
     CreateClientComponent,
+    UpdateClientComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule, 
     ReactiveFormsModule, 
-    NgToastModule
+    NgToastModule, 
     
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })
