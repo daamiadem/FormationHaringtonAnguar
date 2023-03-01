@@ -1,0 +1,34 @@
+<div  >
+<form class="d-flex align-content-center align-items-center flex-column" [formGroup]="clientForm " (ngSubmit)="onSubmit()">
+   
+    <div class="col-md-6 center">
+      <label for="nameClient">Nom client :</label>
+      <input class="form-control "  type="text" id="nameClient" formControlName="nameClient" required>
+      <div *ngIf="clientForm.get('nameClient').invalid && (clientForm.get('nameClient').dirty || clientForm.get('nameClient').touched)">
+        <div  *ngIf="clientForm.get('nameClient').errors['required']">Le nom du client est obligatoire</div>
+    </div>
+    </div>
+    <div class="col-md-6 center">
+      <label for="profession">Profession :</label>
+      <input class="form-control"  type="text" id="profession" formControlName="profession">
+      <div *ngIf="clientForm.get('profession').invalid && (clientForm.get('profession').dirty || clientForm.get('profession').touched)">
+        <div  *ngIf="clientForm.get('profession').errors['required']">La profession est obligatoire</div>
+        </div>
+    </div>
+    <div class="col-md-6 center">
+      <label for="phoneNumber">Numéro de téléphone :</label>
+      <input class="form-control"  type="text" id="phoneNumber" formControlName="phoneNumber" required>
+      <div *ngIf="clientForm.get('phoneNumber').invalid && (clientForm.get('phoneNumber').dirty || clientForm.get('phoneNumber').touched)">
+        <div *ngIf="clientForm.get('phoneNumber').errors['required']">Le numéro de téléphone est obligatoire</div>
+    </div>
+    </div>
+    <div class="col-md-6 center">
+      <label for="birthDate">Date de naissance :</label>
+      <input class="form-control" type="text" id="birthDate" formControlName="birthDate" required>
+      <div *ngIf="clientForm.get('birthDate').invalid && (clientForm.get('birthDate').dirty || clientForm.get('birthDate').touched)">
+        <div *ngIf="clientForm.get('birthDate').errors['required']">La date de naissance est obligatoire</div>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="clientForm.invalid">Ajouter</button>
+  </form>
+  </div>

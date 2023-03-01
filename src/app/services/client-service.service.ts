@@ -21,6 +21,18 @@ export class ClientServiceService {
     const url = this.url + '/DeleteClient/' + id;
     return this.http.delete<client>(url);
   }
+  httpOptions = { 
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+    }
+
+    
+
+  public ajouterClient(client: client) : Observable<client>{
+
+    return this.http.post<client>(this.url + "/CreateClient",client , this.httpOptions);
+  }
 
 
 }

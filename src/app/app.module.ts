@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { ClienListComponent } from './components/client/clien-list/clien-list.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ClienCreateComponent } from './components/client/clien-create/clien-create.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { DeleteClientComponent } from './components/client/delete-client/delete-client.component';
+import { CreateClientComponent } from './components/client/create-client/create-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgToastModule } from 'ng-angular-popup'
 
 @NgModule({
   declarations: [
@@ -16,13 +17,15 @@ import { DeleteClientComponent } from './components/client/delete-client/delete-
     ClienListComponent,
     MainPageComponent,
     NavbarComponent,
-    ClienCreateComponent,
-    DeleteClientComponent
+    CreateClientComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule, 
+    ReactiveFormsModule, 
+    NgToastModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
