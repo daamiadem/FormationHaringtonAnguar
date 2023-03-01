@@ -1,0 +1,37 @@
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Profession</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Date of birth</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+
+        
+      </tr>
+    </thead>
+        <tbody>
+            <tr *ngFor="let u of Clients; let i = index">
+              <td>{{ u.nameClient }}</td>
+              <td>{{ u.profession }}</td>
+              <td>{{ u.phoneNumber }}</td>
+              <td>{{ u.birthDate }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="showDeleteConfirmationModal()">Supprimer</button>
+                <app-delete-client (confirmed)="deleteClient(u.idClient, i)"></app-delete-client>
+
+               
+               
+              </td>
+              <td>
+                <button class="btn btn-secondary" (click)="showEditForm(u)">
+                 
+                  Update
+                </button>
+              </td>
+              
+    </tbody>
+  </table>
