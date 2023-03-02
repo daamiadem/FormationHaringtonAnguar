@@ -37,7 +37,14 @@ export class ClientServiceService {
     })
     }
 
+  public RechercheByName(name : string) : Observable<client[]>{
+    return this.http.get<client[]>(this.url +"GetClientsByName/"+ name)
+  }
 
+
+  public RechercheByProfession(name : string) : Observable<client[]>{
+    return this.http.get<client[]>(this.url +"GetClientsByProfessions/"+ name)
+  }
 
   public ajouterClient(client: client) : Observable<client>{
 

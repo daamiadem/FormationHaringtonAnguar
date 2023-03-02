@@ -1,6 +1,33 @@
 
+<div>
+
+
+    <div>
+        <div >
+            <div class="form-inline col-md-4 row">
+              
+                <form class="form-group mx-sm-3 mb-2 col" [formGroup]="nameRecherche " (ngSubmit)="onSubmitName()" >
+                    <div>
+                        <label for="inputPassword2" class="sr-only">Recherche Par Name</label>
+                        <input type="text" class="form-control mb-2" id="nameClient" formControlName="nameClient" placeholder="Name">
+                        <button type="submit" class="btn btn-primary mb-2" >Recherche</button>
+
+                    </div>
+                </form>
+                <form class="form-group mx-sm-3 mb-2 col"   [formGroup]="ProfessioRecherche " (ngSubmit)="onSubmitProfession()">
+                    <div>
+                        <label for="inputPassword2" class="sr-only">Recherche Par Profession</label>
+                        <input type="text" class="form-control mb-2" id="ProfessionClient" formControlName="ProfessionClient" placeholder="Profession">
+                        <button type="submit" class="btn btn-primary mb-2" >Recherche</button>
+                </div>
+                </form>
+              </div>
+        </div>
+    </div>
+
 
 <table class="table">
+
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -13,8 +40,9 @@
         
       </tr>
     </thead>
+    
         <tbody>
-            <tr *ngFor="let u of Clients; let i = index">
+            <tr *ngFor="let u of Clients ; let i = index  ">
               <td>{{ u.nameClient }}</td>
               <td>{{ u.profession }}</td>
               <td>{{ u.phoneNumber }}</td>
@@ -34,3 +62,4 @@
               
     </tbody>
   </table>
+</div>

@@ -12,6 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup'; 
 import { CommonModule } from '@angular/common';
 import { UpdateClientComponent } from './components/client/update-client/update-client.component';
+import { FilterPipeModule } from 'ngx-filter-pipe';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -29,6 +32,9 @@ import { UpdateClientComponent } from './components/client/update-client/update-
     HttpClientModule, 
     ReactiveFormsModule, 
     NgToastModule, 
+    FilterPipeModule, 
+    FormsModule,
+
     
   ],
  

@@ -5,6 +5,8 @@ declare var $: any;
 import { NgToastService } from 'ng-angular-popup';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -16,16 +18,42 @@ import { Router } from '@angular/router';
 export class ClienListComponent implements OnInit {
 
   Clients : client[]; 
+  name : string ; 
+  nameRecherche : FormGroup; 
+  ProfessioRecherche : FormGroup;
+  
 
   
 
-  constructor(private clientService : ClientServiceService  , private toast: NgToastService , private router: Router  ) { }
+  constructor(private clientService : ClientServiceService  ,private formBuilder: FormBuilder,  private toast: NgToastService , private router: Router  ) { }
 
   ngOnInit(): void {
     this.clientService.getAllClients().subscribe((client) =>{ (this.Clients = client), console.log(this.Clients)});
-  
+    this.nameRecherche= this.formBuilder.group({
+      nameClient : [''], 
+    })
+    this.ProfessioRecherche= this.formBuilder.group({
+      ProfessionClient: ['']
+    })
    
   }
+
+  onSubmitName(){
+    this.name = this.nameRecherche.getRawValue().nameClient;
+    console.log(this.name)
+    this.clientService.RechercheByName(this.name).subscribe(client=>{ (this.Clients = client), console.log(this.Clients)}); 
+  }
+
+
+  onSubmitProfession(){
+    this.name = this.ProfessioRecherche.getRawValue().ProfessionClient;
+    console.log(this.name)
+    this.clientService.RechercheByProfession(this.name).subscribe(client=>{ (this.Clients = client), console.log(this.Clients)}); 
+  
+
+  }
+
+
 
   showDeleteConfirmationModal() {
     $('#app-delete-client').openmodal('show');
@@ -37,7 +65,6 @@ export class ClienListComponent implements OnInit {
     this.clientService.RemoveClient(i).subscribe();
 Swal.fire('Hi', 'Voulez vous vraiment client!', 'question').then((result) => {
       if (result.value) {
-        this.Clients.splice(j, 1);
     this.clientService.RemoveClient(i.idClient).subscribe();      }
     });
   }
@@ -45,5 +72,6 @@ Swal.fire('Hi', 'Voulez vous vraiment client!', 'question').then((result) => {
     this.router.navigate(['updateClient', client.idClient]);
 
   }
+
 
 }
