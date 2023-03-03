@@ -4,7 +4,7 @@
 
     <div>
         <div >
-            <div class="form-inline col-md-4 row">
+            <div class="form-inline col-md-6 row">
               
                 <form class="form-group mx-sm-3 mb-2 col" [formGroup]="nameRecherche " (ngSubmit)="onSubmitName()" >
                     <div>
@@ -21,6 +21,21 @@
                         <button type="submit" class="btn btn-primary mb-2" >Recherche</button>
                 </div>
                 </form>
+
+                <form class="form-group mx-sm-3 mb-2 col" [formGroup]="RechercheDate" (ngSubmit)="onSubmitDate()" >
+                    <div>
+                        <label for="inputPassword2" class="sr-only">Recherche Entre deux date</label>
+                        <label for="inputPassword2" class="sr-only">Date Debut</label>
+
+                        <input type="date" class="form-control mb-2" id="nameClient" formControlName="DateDebut" placeholder="Name">
+                        <label for="inputPassword2" class="sr-only">Date Fin</label>
+
+                        <input type="date" class="form-control mb-2" id="nameClient" formControlName="DateFin" placeholder="Name">
+                        <button type="submit" class="btn btn-primary mb-2" >Recherche</button>
+
+                    </div>
+                </form>
+                
               </div>
         </div>
     </div>
@@ -34,6 +49,7 @@
         <th scope="col">Profession</th>
         <th scope="col">Phone Number</th>
         <th scope="col">Date of birth</th>
+        <th scope="col">New Commande</th>
         <th scope="col">Delete</th>
         <th scope="col">Update</th>
 
@@ -47,6 +63,11 @@
               <td>{{ u.profession }}</td>
               <td>{{ u.phoneNumber }}</td>
               <td>{{ u.birthDate }}</td>
+              <td>
+                <button class="btn btn-success" (click)="ShowCreateCommande(u)" >
+                 
+                  Create
+                </button>
               <td>
                 <button class="btn btn-danger" (click)="deleteClient(u, i)">Supprimer</button>
 

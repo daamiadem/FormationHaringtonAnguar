@@ -14,6 +14,9 @@ import { CommonModule } from '@angular/common';
 import { UpdateClientComponent } from './components/client/update-client/update-client.component';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { FormsModule } from '@angular/forms';
+import { CommandeListComponent } from './components/commande/commande-list/commande-list.component';
+import { CreateCommandeComponent } from './components/commande/create-commande/create-commande.component';
+import { UpdateCommandeComponent } from './components/commande/update-commande/update-commande.component';
 
 
 
@@ -25,6 +28,9 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     CreateClientComponent,
     UpdateClientComponent,
+    CommandeListComponent,
+    CreateCommandeComponent,
+    UpdateCommandeComponent,
   ],
   imports: [
     BrowserModule,

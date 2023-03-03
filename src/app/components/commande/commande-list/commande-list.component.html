@@ -1,0 +1,61 @@
+<div class="form-inline col-md-5">
+<form class="form-group mx-sm-3 mb-2 col" [formGroup]="RechercheDate" (ngSubmit)="onSubmitDate()" >
+    <div>
+        <label for="inputPassword2" class="sr-only">Recherche Entre deux date</label>
+        <label for="inputPassword2" class="sr-only">Date Debut</label>
+
+        <input type="date" class="form-control mb-2" id="nameClient" formControlName="DateDebut" placeholder="Name">
+        <label for="inputPassword2" class="sr-only">Date Fin</label>
+
+        <input type="date" class="form-control mb-2" id="nameClient" formControlName="DateFin" placeholder="Name">
+        <button type="submit" class="btn btn-primary mb-2" >Recherche</button>
+
+    </div>
+</form>
+</div>
+
+
+<table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">Nom Boutique</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date Livraison</th>
+        <th scope="col">Poids</th>
+        <th scope="col">Client</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+
+        
+      </tr>
+    </thead>
+    
+        <tbody>
+            <tr *ngFor="let u of Commandes ; let i = index  ">
+                <td>{{ u.nomBoutique }}</td>
+
+              <td>{{ u.description }}</td>
+              <td>{{ u.dateLivraison }}</td>
+              <td>{{ u.poids }}</td>
+              <td>
+                <button class="btn btn-success" (click)="getClientInfo(u)"  >Client</button>
+
+               
+               
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteCommande(u, i)" >Supprimer</button>
+
+               
+               
+              </td>
+              <td>
+                <button class="btn btn-secondary"  (click)="showEditForm(u)">
+                 
+                  Update
+                </button>
+              </td>
+              
+    </tbody>
+  </table>

@@ -1,0 +1,34 @@
+<div  >
+    <form class="d-flex align-content-center align-items-center flex-column" [formGroup]="commandeForm " (ngSubmit)="onSubmit()">
+       
+        <div class="col-md-6 center">
+          <label for="nameClient">Nom Boutique:</label>
+          <input class="form-control "  type="text" id="nomBoutique" formControlName="nomBoutique" required>
+          <div *ngIf="commandeForm.get('nomBoutique').invalid && (commandeForm.get('nomBoutique').dirty || commandeForm.get('nomBoutique').touched)">
+            <div  *ngIf="commandeForm.get('nomBoutique').errors['required']">Le nom du boutique est obligatoire</div>
+        </div>
+        </div>
+        <div class="col-md-6 center">
+          <label for="profession">Description :</label>
+          <input class="form-control"  type="text" id="description" formControlName="description">
+          <div *ngIf="commandeForm.get('description').invalid && (commandeForm.get('description').dirty || commandeForm.get('description').touched)">
+            <div  *ngIf="commandeForm.get('description').errors['required']">La description est obligatoire</div>
+            </div>
+        </div>
+        <div class="col-md-6 center">
+          <label for="phoneNumber">Poids :</label>
+          <input class="form-control"  type="text" id="poids" formControlName="poids" required>
+          <div *ngIf="commandeForm.get('poids').invalid && (commandeForm.get('poids').dirty || commandeForm.get('poids').touched)">
+            <div *ngIf="commandeForm.get('poids').errors['required']">Le poids est obligatoire</div>
+        </div>
+        </div>
+        <div class="col-md-6 center mb-2">
+          <label for="birthDate">Date Livraison :</label>
+          <input class="form-control" type="date" id="dateLivraison" formControlName="dateLivraison" required>
+          <div *ngIf="commandeForm.get('dateLivraison').invalid && (commandeForm.get('dateLivraison').dirty || commandeForm.get('dateLivraison').touched)">
+            <div *ngIf="commandeForm.get('dateLivraison').errors['required']">La date de livraison est obligatoire</div>
+        </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="commandeForm.invalid">Ajouter</button>
+      </form>
+      </div>

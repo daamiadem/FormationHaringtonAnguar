@@ -21,6 +21,7 @@ export class ClienListComponent implements OnInit {
   name : string ; 
   nameRecherche : FormGroup; 
   ProfessioRecherche : FormGroup;
+  RechercheDate : FormGroup;
   
 
   
@@ -29,12 +30,19 @@ export class ClienListComponent implements OnInit {
 
   ngOnInit(): void {
     this.clientService.getAllClients().subscribe((client) =>{ (this.Clients = client), console.log(this.Clients)});
+    
     this.nameRecherche= this.formBuilder.group({
       nameClient : [''], 
     })
     this.ProfessioRecherche= this.formBuilder.group({
       ProfessionClient: ['']
     })
+
+    this.RechercheDate = this.formBuilder.group({
+      DateDebut : [''], 
+      DateFin : [''] , 
+    })
+
    
   }
 
@@ -50,6 +58,18 @@ export class ClienListComponent implements OnInit {
     console.log(this.name)
     this.clientService.RechercheByProfession(this.name).subscribe(client=>{ (this.Clients = client), console.log(this.Clients)}); 
   
+
+  }
+
+  onSubmitDate(){
+
+    const Clientsfiltered= this.Clients.filter(c => {
+      const date = c.birthDate ; 
+      return date >= this.RechercheDate.getRawValue().DateDebut && date<= this.RechercheDate.getRawValue().DateFin;
+
+    })
+
+    this.Clients= Clientsfiltered ; 
 
   }
 
@@ -73,5 +93,9 @@ Swal.fire('Hi', 'Voulez vous vraiment client!', 'question').then((result) => {
 
   }
 
+  ShowCreateCommande(client : client){
+    this.router.navigate(['CreateCommande', client.idClient]);
+
+  }
 
 }

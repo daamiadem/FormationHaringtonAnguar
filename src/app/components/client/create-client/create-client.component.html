@@ -22,9 +22,9 @@
         <div *ngIf="clientForm.get('phoneNumber').errors['required']">Le numéro de téléphone est obligatoire</div>
     </div>
     </div>
-    <div class="col-md-6 center">
+    <div class="col-md-6 center mb-2">
       <label for="birthDate">Date de naissance :</label>
-      <input class="form-control" type="text" id="birthDate" formControlName="birthDate" required>
+      <input class="form-control" type="date" id="birthDate" formControlName="birthDate" required>
       <div *ngIf="clientForm.get('birthDate').invalid && (clientForm.get('birthDate').dirty || clientForm.get('birthDate').touched)">
         <div *ngIf="clientForm.get('birthDate').errors['required']">La date de naissance est obligatoire</div>
     </div>
