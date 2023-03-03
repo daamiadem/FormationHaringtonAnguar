@@ -17,6 +17,9 @@ import { FormsModule } from '@angular/forms';
 import { CommandeListComponent } from './components/commande/commande-list/commande-list.component';
 import { CreateCommandeComponent } from './components/commande/create-commande/create-commande.component';
 import { UpdateCommandeComponent } from './components/commande/update-commande/update-commande.component';
+import { ProduitListComponent } from './components/produit/produit-list/produit-list.component';
+import { ProduitCReateComponent } from './components/produit/produit-create/produit-create.component';
+import { ProduitUpdateComponent } from './components/produit/produit-update/produit-update.component';
 
 
 
@@ -31,6 +34,9 @@ import { UpdateCommandeComponent } from './components/commande/update-commande/u
     CommandeListComponent,
     CreateCommandeComponent,
     UpdateCommandeComponent,
+    ProduitListComponent,
+    ProduitCReateComponent,
+    ProduitUpdateComponent,
   ],
   imports: [
     BrowserModule,

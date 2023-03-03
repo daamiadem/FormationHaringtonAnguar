@@ -7,10 +7,13 @@ import { UpdateClientComponent } from './components/client/update-client/update-
 import { CommandeListComponent } from './components/commande/commande-list/commande-list.component';
 import { CreateCommandeComponent } from './components/commande/create-commande/create-commande.component';
 import { UpdateCommandeComponent } from './components/commande/update-commande/update-commande.component';
+import { ProduitListComponent } from './components/produit/produit-list/produit-list.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
     {path: 'clientList', component: ClienListComponent },
+    
+    {path: 'produitList', component: ProduitListComponent },
     {path: 'NewClient', component: CreateClientComponent  } , 
     {path: 'updateClient/:idclient', component: UpdateClientComponent },
     {path: 'CreateCommande/:idclient', component: CreateCommandeComponent },
